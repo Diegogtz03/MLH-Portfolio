@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Personal Portfolio">
+    <meta property="og:description" content="My Personal Portfolio">
+    <link type="text/css" rel="stylesheet" href="../static/styles/welcome.css">
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../static/scripts/welcome.js"></script>
+    <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
+    <title>Welcome</title>
+  </head>
+  <body>
+    <div class="noise-wrapper"></div>
+    <div class="wrapper">
+      {% import 'menu.html' as menu %}
+      {{ menu.menu() }}
+
+      <div class="main-information-wrapper">
+        <div class="welcome-text">
+          <span class="prevent-select" id="welcome-span">Welcome</span><br>
+          <span class="prevent-select" id="name-span">Diego's</span><br>
+          <span class="prevent-select" id="subtitle-span">Journey</span><br>
+
+          <div class="glowing-orbs">
+            <div class="orb blue-orb"></div>
+            <div class="orb purple-orb"></div>
+          </div>
+
+        </div>
+        <div class="contact-button-wrapper">
+          <div class="buttons-wrapper">
+            <div class="contact-menu-button">
+              <a class="menu-button"id="mail-button" href="mailto:{{ email_address }}">
+                <img src="../static/icons/mail.svg" alt="Mail send icon">
+              </a>
+              <span class="mail-text hidden-text">
+                {{ email_address }}
+                <button class="copy-btn" data-clipboard-text='{{ email_address }}'>
+                  <img src="../static/icons/copy.svg" alt="Copy icon">
+                </button>
+              </span>
+            </div>
+
+            <a class="menu-button contact-menu-button" href="https://github.com/{{ github_username }}" target="_blank">
+              <img src="../static/icons/github.svg" alt="Github logo" />
+            </a>
+
+            <a class="menu-button contact-menu-button" href="https://linkedin.com/in/{{ linkedin_username }}" target="_blank">
+              <img src="../static/icons/linkedin.svg" alt="Linkedin logo" />
+            </a>
+          </div>
+          
+          <button class="contact-button" onclick="showContactInfo()">
+            Contact me
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

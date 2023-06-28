@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Personal Portfolio">
+    <meta property="og:description" content="My Personal Portfolio">
+    <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../static/styles/projects.css">
+    <title>My Projects</title>
+  </head>
+  <body>
+    <div class="noise-wrapper"></div>
+    <div class="glowing-orbs">
+      <div class="orb blue-orb"></div>
+      <div class="orb purple-orb"></div>
+    </div>
+    {% import 'menu.html' as menu %}
+    {{ menu.menu() }}
+    <article>
+      <section class="projects-wrapper">
+        <h1>Projects</h1>
+        <div class="projects-container">
+          <ul>
+            {% for project in projects %}
+            <li>
+              <img src="{{ project.image }}" class="open-modal" alt="" id="open-modal-{{ project.id }}">
+              <h4>{{ project.title }}</h4>
+            </li>
+            <dialog class="modal" id="modal-{{ project.id }}">
+              <img src="../static/icons/close.svg" alt="close-btn" class="close-btn" id="close-modal-{{ project.id }}">
+              <div class="modal-content">
+                <h2>{{ project.title }}</h2>
+                <img src="{{ project.image }}" alt="project1" class="modal-img">
+                <p>
+                  {{ project.description }}
+                </p>
+              </div>
+            </dialog>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    </article>
+  </body>
+  <script src="../static/scripts/projects.js"></script>
+</html>

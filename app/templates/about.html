@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Personal Portfolio">
+    <meta property="og:description" content="My Personal Portfolio">
+    <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../static/styles/about.css">
+    <title>About me</title>
+  </head>
+  <body>
+    <div class="noise-wrapper"></div>
+    <div class="glowing-orbs">
+      <div class="orb blue-orb"></div>
+      <div class="orb purple-orb"></div>
+    </div>
+    {% import 'menu.html' as menu %}
+    {{ menu.menu() }}
+    <article>
+      <section class="about-container">
+        <h1>About Me</h1>
+        <div class="about-content-container">
+          <div class="about-paragraph">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel eveniet eum ab, vitae animi ducimus dicta repellendus asperiores deserunt illo nulla, fugiat velit dignissimos. Odio ea autem itaque est repellat.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel eveniet eum ab, vitae animi ducimus dicta repellendus asperiores deserunt illo nulla, fugiat velit dignissimos. Odio ea autem itaque est repellat.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel eveniet eum ab, vitae animi ducimus dicta repellendus asperiores deserunt illo nulla, fugiat velit dignissimos. Odio ea autem itaque est repellat. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel eveniet eum ab, vitae animi ducimus dicta repellendus asperiores deserunt illo nulla, fugiat velit dignissimos. Odio ea autem itaque est repellat. </p>
+          </div>
+          <div class="about-photo">
+            <img src="../static/img/logo.jpg" alt="About Me Photo">
+          </div>
+        </div>
+        <div class="tech-stack-list">
+          <ul>
+            <li>
+              <img src="./static/icons/react.svg"/>
+            </li>
+            <li>
+              <img src="./static/icons/python.svg"/>
+            </li>
+            <li>
+              <img src="./static/icons/javascript.svg"/>
+            </li>
+            <li>
+              <img src="./static/icons/typescript.svg"/>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </body>
+</html>

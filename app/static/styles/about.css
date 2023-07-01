@@ -106,7 +106,7 @@ article {
 }
 
 .about-photo {
-  width: 100%;
+  width: fit-content;
   height: 100%;
   margin-top: 2rem;
   margin-bottom: 2rem;

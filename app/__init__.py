@@ -11,7 +11,7 @@ def index():
 
 @app.route('/welcome')
 def welcome():
-    return render_template('welcome.html', email_address='example@gmail.com', github_username = '', linkedin_username = '')
+    return render_template('welcome.html', email_address='diego_gtz_t@hotmail.com', github_username = 'diegogtz03', linkedin_username = 'diegogtzt')
 
 @app.route('/about')
 def about():

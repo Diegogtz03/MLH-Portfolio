@@ -24,25 +24,25 @@ function loadMap() {
       latitude: 37.7829,
       longitude: -122.4190,
       label: "San Francisco",
-      tooltip: ``
+      tooltip: `Love this city!`
     },
     {
       latitude: 34.073810,
       longitude: -118.361500,
       label: "Los Angeles",
-      tooltip: ``
+      tooltip: `Love the hollywood vibe! 🎬`
     },
     {
       latitude: 32.728822,
       longitude: -117.129873,
       label: "San Diego",
-      tooltip: ``
+      tooltip: `Awesome Museums!`
     },
     {
       latitude: 37.335930,
       longitude: -121.880941,
       label: "San José",
-      tooltip: ``
+      tooltip: `Love this city!`
     },
     {
       latitude: 36.176705,
@@ -108,7 +108,7 @@ function loadMap() {
       latitude: 22.892709,
       longitude: -109.914497,
       label: "Cabo San Lucas",
-      tooltip: ``
+      tooltip: `Loved this trip with my family!`
     },
     {
       latitude: 19.427491,
@@ -126,13 +126,13 @@ function loadMap() {
       latitude: 26.088082,
       longitude: -98.273706,
       label: "Reynosa",
-      tooltip: ``
+      tooltip: `👶🏻 I was born here!`
     },
     {
       latitude: 25.652277,
       longitude: -100.276515,
       label: "Monterrey",
-      tooltip: ``
+      tooltip: `📓 I study here!`
     },
     {
       latitude: 20.964114,
@@ -144,7 +144,7 @@ function loadMap() {
       latitude: 21.158634,
       longitude: -86.849843,
       label: "Cancún",
-      tooltip: ``
+      tooltip: `Not a fan of the beach!`
     },
     {
       latitude: 16.969091,
@@ -236,7 +236,7 @@ function loadMap() {
     style:'../static/mapStyles/dark_theme.json', 
     zoom: 0.9, 
     center: [0, 40],
-    tooltips: {html: true, hover: false},
+    tooltips: {html: true, hover: true},
     markers: {color: "#f84d4d"},
     label: {color: "#f84d4d"},
     textColor: "#f84d4d"

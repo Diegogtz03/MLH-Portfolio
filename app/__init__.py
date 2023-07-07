@@ -55,9 +55,9 @@ def projects():
 def experience():
     experiences = [
         {
-            "company_institution": "University of Lorem Ipsum",
-            "start_date": "May 2021",
-            "end_date": "May 2026",
+            "company_institution": "CS @ Tecnológico de Monterrey",
+            "start_date": "Aug 2021",
+            "end_date": "Dec 2025",
         },
         {
             "company_institution": "MLH PE Fellowship",

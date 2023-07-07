@@ -71,20 +71,28 @@ def experience():
 def hobbies():
     hobbies = [
         {
-            "name": "Hiking",
-            "image": "../static/hobbies/hiking.png"
+            "name": "Coding",
+            "image": "../static/hobbies/coding.png",
         },
         {
-            "name": "Camping",
-            "image": "../static/hobbies/camping.png"
+            "name": "Watching movies/series",
+            "image": "../static/hobbies/movies.png",
         },
         {
-            "name": "Kayaking",
-            "image": "../static/hobbies/kayaking.png"
+            "name": "Analog photography",
+            "image": "../static/hobbies/photography.jpg",
         },
         {
-            "name": "Biking",
-            "image": "../static/hobbies/biking.png"
+            "name": "Design",
+            "image": "../static/hobbies/designs.png",
+        },
+        {
+            "name": "Theatre staff",
+            "image": "../static/hobbies/staff.png",
+        },
+        {
+            "name": "Video editing",
+            "image": "../static/hobbies/travel_video.gif",
         }
     ]
     return render_template('hobbies.html', hobbies = hobbies)

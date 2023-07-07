@@ -114,7 +114,9 @@ article {
 }
 
 .about-photo img {
-  max-width: 300px;
+  width: 300px;
+  height: 300px;
+  object-position: top;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -125,8 +127,8 @@ article {
 
 .tech-stack-list ul {
   list-style: none;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(12, min-content);
   align-items: center;
   padding: 0;
 }
@@ -195,6 +197,11 @@ article {
     max-width: 600px;
   }
 
+  .tech-stack-list ul {
+    grid-template-columns: repeat(5, min-content);
+    row-gap: 15px;
+  }  
+
   .about-photo {
     display: flex;
     justify-content: center;
@@ -202,7 +209,8 @@ article {
   }
 
   .about-photo img {
-    max-width: 300px;
+    width: 250px;
+    height: 250px;
   }
 
   .tech-stack-list {

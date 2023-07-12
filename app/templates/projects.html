@@ -17,31 +17,30 @@
     </div>
     {% import 'menu.html' as menu %}
     {{ menu.menu() }}
-    <article>
-      <section class="projects-wrapper">
-        <h1>Projects</h1>
-        <div class="projects-container">
-          <ul>
-            {% for project in projects %}
-            <li>
-              <img src="{{ project.image }}" class="open-modal" alt="" id="open-modal-{{ project.id }}">
-              <h4>{{ project.title }}</h4>
-            </li>
-            <dialog class="modal" id="modal-{{ project.id }}">
-              <img src="../static/icons/close.svg" alt="close-btn" class="close-btn" id="close-modal-{{ project.id }}">
-              <div class="modal-content">
-                <h2>{{ project.title }}</h2>
-                <img src="{{ project.image }}" alt="project1" class="modal-img">
-                <p>
-                  {{ project.description }}
-                </p>
-              </div>
-            </dialog>
-            {% endfor %}
-          </ul>
+    <div class="opaque-body"></div>
+    <div class="projects-wrapper">
+      <h1>Projects</h1>
+      <div class="projects-container">
+        {% for project in projects %}
+          <div class="project">
+            <img src="{{ project.image }}" class="open-modal" alt="" id="open-modal-{{ project.id }}" onclick="openModal({{ project.id }})">
+            <h4>{{ project.title }}</h4>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% for project in projects %}
+      <div class="modal" id="modal-{{ project.id }}">
+        <img src="../static/icons/close.svg" alt="close-btn" class="close-btn" id="close-modal-{{ project.id }}" onclick="closeModal({{ project.id }})">
+        <div class="modal-content">
+          <h2>{{ project.title }}</h2>
+          <img src="{{ project.image }}" alt="project1" class="modal-img">
+          <p>
+            {{ project.description }}
+          </p>
         </div>
-      </section>
-    </article>
+      </div>
+    {% endfor %}
   </body>
-  <script src="../static/scripts/projects.js"></script>
+  <script defer src="../static/scripts/projects.js"></script>
 </html>

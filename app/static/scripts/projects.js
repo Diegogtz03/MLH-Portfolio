@@ -1,47 +1,18 @@
-const openModal1 = document.getElementById('open-modal-1');
-const modal1 = document.getElementById('modal-1');
-const closeModal1 = document.getElementById('close-modal-1');
+function openModal(id) {
+  document.getElementsByClassName('opaque-body')[0].classList.add('opaque-body-shown');
+  document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+  document.getElementsByClassName('projects-wrapper')[0].style.pointerEvents = 'none';
+  document.getElementById('modal-' + id).classList.add('open');
+}
 
-openModal1.addEventListener('click', () => {
-  modal1.showModal();
-})
+function closeModal(id) {
+  document.getElementById('modal-' + id).classList.add('close');
+  document.getElementsByClassName('opaque-body')[0].classList.remove('opaque-body-shown');
+  document.getElementsByClassName('projects-wrapper')[0].style.pointerEvents = 'all';
+  document.getElementsByTagName('body')[0].style.overflow = 'scroll';
 
-closeModal1.addEventListener('click', () => {
-  modal1.close();
-})
-
-const openModal2 = document.getElementById('open-modal-2');
-const modal2 = document.getElementById('modal-2');
-const closeModal2 = document.getElementById('close-modal-2');
-
-openModal2.addEventListener('click', () => {
-  modal2.showModal();
-})
-
-closeModal2.addEventListener('click', () => {
-  modal2.close();
-})
-
-const openModal3 = document.getElementById('open-modal-3');
-const modal3 = document.getElementById('modal-3');
-const closeModal3 = document.getElementById('close-modal-3');
-
-openModal3.addEventListener('click', () => {
-  modal3.showModal();
-})
-
-closeModal3.addEventListener('click', () => {
-  modal3.close();
-})
-
-const openModal4 = document.getElementById('open-modal-4');
-const modal4 = document.getElementById('modal-4');
-const closeModal4 = document.getElementById('close-modal-4');
-
-openModal4.addEventListener('click', () => {
-  modal4.showModal();
-})
-
-closeModal4.addEventListener('click', () => {
-  modal4.close();
-})
+  setTimeout(function() {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.getElementById('modal-' + id).classList.remove('close');
+  }, 600);
+}

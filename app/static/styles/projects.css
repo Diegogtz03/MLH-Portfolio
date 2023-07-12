@@ -12,6 +12,25 @@ body {
   align-items: center;
 }
 
+.opaque-body {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100vw;
+  pointer-events: none;
+  overflow: hidden;
+
+  background: #0000003d;
+
+  transition: opacity 0.5s;
+}
+
+.opaque-body-shown {
+  opacity: 1;
+}
+
 .glowing-orbs {
   position: absolute;
   top: 0;
@@ -69,6 +88,17 @@ body {
 }
 
 .modal {
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
   width: 600px;
   height: fit-content;
   background-color: #161616;
@@ -79,6 +109,19 @@ body {
 
   -webkit-box-shadow: 5px 5px 15px 5px rgba(96,65,146,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55); 
   box-shadow: 5px 5px 15px 5px rgba(96,65,146,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55);
+
+  transition: opacity 0.5s;
+
+  transition-delay: 0.1s;
+}
+
+.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.close {
+  opacity: 0 !important;
 }
 
 .modal:focus {
@@ -145,7 +188,7 @@ body {
   margin-right: auto;
 }
 
-.projects-container ul {
+.projects-container {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -154,17 +197,17 @@ body {
   margin: 0 1rem;
 }
 
-.projects-container li {
+.project {
   margin: 3rem 2rem;
 }
 
-.projects-container img {
+.project img {
   max-width: 400px;
   object-fit: cover;
   border-radius: 1rem;
 }
 
-.projects-container h4 {
+.project h4 {
   font-family: 'Gemunu Libre', sans-serif;
   font-size: 3.5rem;
   font-weight: 300;
@@ -176,14 +219,17 @@ body {
 
 
 @media screen and (max-width: 980px) {
-  .projects-container img {
+  .project img {
     max-width: 300px;
   }
 }
 
 @media screen and (max-width: 820px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
 
-  .projects-container ul {
+  .project ul {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 2rem;
@@ -191,7 +237,7 @@ body {
     margin: 0 1rem;
   }
 
-  .projects-container li {
+  .project li {
     margin: 1rem 2rem;
   }
 
@@ -201,7 +247,7 @@ body {
     margin-bottom: 2rem;
   }
 
-  .projects-container img {
+  .project img {
     max-width: 100%;
   }
 
@@ -216,8 +262,6 @@ body {
     margin: auto;
     display: block;
   }
-
-
 }
 
 @keyframes blue-orb-movement {

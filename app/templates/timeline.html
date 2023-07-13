@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Personal Portfolio">
+    <meta property="og:description" content="My Personal Portfolio">
+    <script src="../static/scripts/timeline.js"></script>
+    <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../static/styles/timeline.css">
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div class="noise-wrapper"></div>
+    <div class="glowing-orbs">
+      <div class="orb blue-orb"></div>
+      <div class="orb purple-orb"></div>
+    </div>
+    {% import 'menu.html' as menu %}
+    {{ menu.menu() }}
+    <div class="content-container">
+      <h1>Timeline</h1>
+
+      <form class="post-form">
+        <h2>New post</h2>
+
+        <div class="input-div">
+            <input type="text" id="form-name" name="name" placeholder="Name">
+            <input type="text" id="form-email" name="email" placeholder="E-Mail">
+        </div>
+
+        <textarea placeholder="Content" id="form-content" name="content"></textarea>
+
+        <button class="form-button">Post</button>
+      </form>
+      
+      <div class="timeline-container"></div>
+    </div>
+  </body>
+</html>

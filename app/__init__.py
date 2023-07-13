@@ -25,7 +25,6 @@ class TimelinePost(Model):
         database = mydb
 
 mydb.connect()
-mydb.create_tables([TimelinePost])
 
 @app.route('/')
 def index():
@@ -154,6 +153,10 @@ def hobbies():
         }
     ]
     return render_template('hobbies.html', hobbies = hobbies)
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():

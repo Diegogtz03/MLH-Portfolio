@@ -14,6 +14,6 @@ pip install -r requirements.txt >/dev/null
 
 # reload service and restart 'myportfolio' service
 systemctl daemon-reload
-system restart myportfolio
+systemctl restart myportfolio
 
 echo "Website Re-deployed!"

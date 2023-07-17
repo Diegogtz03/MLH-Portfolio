@@ -1,35 +1,42 @@
 {% macro menu() -%}
   <link type="text/css" rel="stylesheet" href="../static/styles/menu.css">
+  <script defer src="../static/scripts/menu.js"></script>
 
   <div class="menu-wrapper">
     <!-- Welcome Page -->
     <a class="menu-button" href="/welcome">
       <img src="../static/icons/home.svg" alt="Line drawn house" />
+      <span class="hover-label" data-label="Home"></span>
     </a>
 
     <!-- About Me Page -->
     <a class="menu-button" href="/about">
       <img src="../static/icons/about.svg" alt="letter i" />
+      <span class="hover-label" data-label="About Me"></span>
     </a>
 
     <!-- Projects Page -->
     <a class="menu-button" href="/projects">
       <img src="../static/icons/book.svg" alt="Book icon" />
+      <span class="hover-label" data-label="Projects"></span>
     </a>
 
     <!-- Experience Page -->
     <a class="menu-button" href="/experience">
       <img src="../static/icons/flag.svg" alt="Flag icon" />
+      <span class="hover-label" data-label="Experience"></span>
     </a>
 
     <!-- Hobbies Page -->
     <a class="menu-button" href="/hobbies">
       <img src="../static/icons/paitbrush.svg" alt="Paitbrush icon" />
+      <span class="hover-label" data-label="Hobbies"></span>
     </a>
 
     <!-- Travel Page -->
     <a class="menu-button" href="/travel">
       <img src="../static/icons/location.svg" alt="Pinpoint icon" />
+      <span class="hover-label" data-label="Travel"></span>
     </a>
   </div>
 {%- endmacro %}

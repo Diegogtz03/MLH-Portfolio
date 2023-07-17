@@ -75,7 +75,7 @@ def projects():
         {
             "id": "5",
             "title": "Y2-Hub",
-            "image": "../static/projects/Y2Hub.jpeg",
+            "image": "../static/projects/Y2Hub.png",
             "description": "Small and simple Python desktop app designed to download videos and audios from Youtube. Made as a learning experience and not as a final product.",
         },
         {

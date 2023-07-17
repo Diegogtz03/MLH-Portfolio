@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
 .menu-wrapper {
   position: fixed;
   display: flex;
@@ -22,6 +24,7 @@
 }
 
 .menu-button {
+  position: relative;
   border: none;
   display: flex;
   border-radius: 50%;
@@ -46,6 +49,40 @@
   scale: 1;
 }
 
+.hover-label {
+  font-family: 'VT323';
+  color: #14fd91;
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+  bottom: 0;
+  left: 138%;
+  height: fit-content;
+  width: max-content;
+  margin: auto;
+
+  visibility: hidden;
+}
+
+.visible-label {
+  visibility: visible;
+}
+
+.hover-label::after {
+  content: '';
+  animation: blinking-cursor 1s linear infinite;
+  transition: all 0.5s ease;
+}
+
+
+@keyframes blinking-cursor {
+  0% {
+    content: '|';
+  } 100% {
+    content: '';
+  }
+}
+
 
 @media (max-width: 768px) {
   .menu-wrapper {
@@ -68,5 +105,15 @@
     width: 33px;
     height: 33px;
   }
-  
+
+  .hover-label {
+    top: 138%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .visible-label {
+    visibility: hidden !important;
+  }
 }

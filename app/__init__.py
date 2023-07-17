@@ -140,7 +140,7 @@ def hobbies():
         },
         {
             "name": "Analog photography",
-            "image": "../static/hobbies/photography.jpg",
+            "image": "../static/hobbies/photography.png",
         },
         {
             "name": "Design",

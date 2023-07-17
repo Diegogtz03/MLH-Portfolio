@@ -38,6 +38,13 @@
           <p>
             {{ project.description }}
           </p>
+          {% if "link" in project %}
+            <div class="link_container">
+              <form action="{{ project.link }}" target="_blank">
+                <input type="submit" class="link-btn" value="View Project" />
+              </form>
+            </div>
+          {% endif %}
         </div>
       </div>
     {% endfor %}

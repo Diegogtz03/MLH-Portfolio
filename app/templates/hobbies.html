@@ -7,6 +7,8 @@
     <meta property="og:description" content="My Personal Portfolio">
     <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
     <link type="text/css" rel="stylesheet" href="../static/styles/hobbies.css">
+    <script defer src="../static/scripts/hobbies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>Hobbies</title>
   </head>
   <body>
@@ -24,7 +26,10 @@
           <ul>
             {% for hobby in hobbies %}
             <li>
-              <img src="{{ hobby.image }}" alt="">
+              <div class="card-3d">
+                <img src="{{ hobby.image }}" alt="">
+                <div class="glow"></div>
+              </div>
               <h4>{{ hobby.name }}</h4>
             </li>
             {% endfor %}

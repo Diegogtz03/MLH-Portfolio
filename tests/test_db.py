@@ -38,4 +38,3 @@ class TestTimelinePost(unittest.TestCase):
         assert TimelinePost.select().where(TimelinePost.id == 1).count() == 0
         print('Checking post_2 (exists)')
         assert TimelinePost.select().where(TimelinePost.id == 2).count() == 1
-        print('Checking post_2 (correct)')

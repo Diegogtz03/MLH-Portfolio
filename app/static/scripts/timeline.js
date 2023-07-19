@@ -1,18 +1,6 @@
 const maxRotation = 4;
 const minRotation = -4;
 
-async function loadTimeline() {
-  fetch('/api/timeline_post', {
-    method: 'GET'
-  })
-  .then(response => response.json())
-  .then((data) => {
-    data['timeline_posts'].reverse().forEach(post => {
-      addTimelinePost(post['name'], post['email'], post['content'], post['created_at']);
-    });
-  })
-}
-
 function addTimelinePost(name, email, content, date) {
   postCardDiv = document.createElement('div')
   postCardDiv.className = 'timeline-post'
@@ -50,25 +38,28 @@ function addTimelinePost(name, email, content, date) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  loadTimeline();
+  const posts = document.getElementsByClassName('timeline-post');
 
-  const form = document.getElementsByClassName('post-form')[0];
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    fetch('/api/timeline_post', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then((data) => {
-      addTimelinePost(data['name'], data['email'], data['content'], data['created_at']);
-
-      document.getElementById('form-name').value = '';
-      document.getElementById('form-email').value = '';
-      document.getElementById('form-content').value = '';
-    })
+  Array.from(posts).forEach(post => {
+    post.style = `rotate: ${Math.floor(Math.random() * (maxRotation - minRotation + 1) + minRotation)}deg`
   });
 });
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementsByClassName('post-form')[0];
+  const formData = new FormData(form);
+
+  fetch('/api/timeline_post', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then((data) => {
+    addTimelinePost(data['name'], data['email'], data['content'], data['created_at']);
+
+    document.getElementById('form-name').value = '';
+    document.getElementById('form-email').value = '';
+    document.getElementById('form-content').value = '';
+  });
+}

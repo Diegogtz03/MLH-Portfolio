@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
+from app.utils.timeline_api import get_posts
 
 load_dotenv()
 app = Flask(__name__)
@@ -163,7 +164,8 @@ def hobbies():
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html', title="Timeline")
+    posts_data = get_posts(TimelinePost)
+    return render_template('timeline.html', title="Timeline", posts=posts_data['timeline_posts'])
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
@@ -176,12 +178,7 @@ def post_time_line_post():
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post():
-    return {
-        'timeline_posts': [
-            model_to_dict(p)
-            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
-        ]
-    }
+    return get_posts(TimelinePost)
 
 @app.route('/api/timeline_post', methods=['DELETE'])
 def delete_time_line_post():

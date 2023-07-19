@@ -21,20 +21,33 @@
     <div class="content-container">
       <h1>Timeline</h1>
 
-      <form class="post-form">
+      <form class="post-form" onsubmit="handleFormSubmit(event)">
         <h2>New post</h2>
 
         <div class="input-div">
-            <input type="text" id="form-name" name="name" placeholder="Name">
-            <input type="text" id="form-email" name="email" placeholder="E-Mail">
+          <input type="text" id="form-name" name="name" placeholder="Name" required>
+          <input type="email" id="form-email" name="email" placeholder="E-Mail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email" required>
         </div>
 
-        <textarea placeholder="Content" id="form-content" name="content"></textarea>
+        <textarea placeholder="Content" id="form-content" name="content" required></textarea>
 
-        <button class="form-button">Post</button>
+        <input type="submit" class="form-button" value="Post" />
       </form>
       
-      <div class="timeline-container"></div>
+      <div class="timeline-container">
+        {% for post in posts %}
+          <div class="timeline-post">
+            <div class="timeline-post-content">
+              <div class="timeline-post-header">
+                <h3>{{ post.name }}</h3>
+                <h4>- {{ post.email }}</h4>
+              </div>
+              <h4 class="timeline-post-date">{{ post.created_at }}</h4>
+              <p>{{ post.content }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </body>
 </html>

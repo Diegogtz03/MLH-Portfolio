@@ -1,4 +1,5 @@
 import os
+import re
 import datetime
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
@@ -172,6 +173,13 @@ def post_time_line_post():
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+    if len(name) == 0:
+        return "Invalid name", 400
+    if re.fullmatch(regex, email) == None:
+        return "Invalid email", 400
+    if len(content) == 0:
+        return "Invalid content", 400
     timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
     return model_to_dict(timeline_post)

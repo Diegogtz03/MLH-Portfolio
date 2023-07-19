@@ -56,24 +56,23 @@ class AppTestCase(unittest.TestCase):
         assert json["timeline_posts"][0]["content"] == post["content"]
 
         # Check if the post is in the timeline page
-        # response = self.client.get('/timeline')
-        # assert response.status_code == 200
-        # html = response.get_data(as_text=True)
-        # print(html)
-        # assert '<div class="timeline-post">' in html
-        # assert '<div class="timeline-post-content">' in html
-        # assert '<div class="timeline-post-header">' in html
-        # assert '<h3>Diego</h3>' in html
-        # assert '<h4>- example@gmail.com</h4>' in html
-        # assert '<p>This is a test</p>' in html
+        response = self.client.get('/timeline')
+        assert response.status_code == 200
+        html = response.get_data(as_text = True)
+        assert '<div class="timeline-post">' in html
+        assert '<div class="timeline-post-content">' in html
+        assert '<div class="timeline-post-header">' in html
+        assert '<h3>Diego</h3>' in html
+        assert '<h4>- example@gmail.com</h4>' in html
+        assert '<p>This is a test</p>' in html
 
         # Delete the post
         print("Delete the post")
-        response = self.client.delete('/api/timeline_post', data=dict(
+        response = self.client.delete('/api/timeline_post', data = dict(
             id=json["timeline_posts"][0]["id"]
         ))
         assert response.status_code == 200
-        assert response.get_data(as_text=True) == "OK"
+        assert response.get_data(as_text = True) == "OK"
 
         # Check that the post was deleted
         print("Check that the post was deleted")

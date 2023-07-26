@@ -67,7 +67,7 @@ def projects():
         },
         {
             "id": "3",
-            "title": "Trainees Managment System",
+            "title": "Trainee Managment System",
             "image": "../static/projects/traineeSystem.png",
             "description": "A full-stack web application built for a company to help guide their traineers in their learning process while helping the admins take better administration of the program. This website included a game made specifically to motivate the trainees to continue the program. The system was built using React, Next, SQL, .NET, and Unity. Personally worked on the whole front-end and part of the back-end of the website.",
         },

@@ -6,14 +6,10 @@ cd /root/MLH-Portfolio
 # git fetch
 git fetch && git reset origin/main --hard
 
-# enter python virtual environment
-source python3-virtualenv/bin/activate
+# Spin docker containers down to prevent errors
+docker compose -f docker-compose.prod.yml down
 
-# install dependencies
-pip install -r requirements.txt >/dev/null
-
-# reload service and restart 'myportfolio' service
-systemctl daemon-reload
-systemctl restart myportfolio
+# Compose docker containers back up
+docker compose -f docker-compose.prod.yml up -d --build
 
 echo "Website Re-deployed!"

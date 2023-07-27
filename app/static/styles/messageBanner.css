@@ -1,0 +1,36 @@
+.banner-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -10%;
+
+  width: max-content;
+
+  border-radius: 0 0 10px 10px;
+
+  transition: all 0.7s ease-in-out;
+}
+
+#banner-content {
+  margin: 8px 8px 8px 8px;
+  color: white;
+}
+
+.show {
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .banner-wrapper {
+    bottom: -10%;
+    top: unset !important;
+
+    border-radius: 10px 10px 0 0 !important;
+  }
+
+  .show {
+    top: unset !important;
+    bottom: 0 !important;
+  }
+}

@@ -25,11 +25,11 @@
         <h2>New post</h2>
 
         <div class="input-div">
-          <input type="text" id="form-name" name="name" placeholder="Name" required>
-          <input type="email" id="form-email" name="email" placeholder="E-Mail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email" required>
+          <input type="text" id="form-name" name="name" placeholder="Name">
+          <input type="email" id="form-email" name="email" placeholder="E-Mail">
         </div>
 
-        <textarea placeholder="Content" id="form-content" name="content" required></textarea>
+        <textarea placeholder="Content" id="form-content" name="content"></textarea>
 
         <input type="submit" class="form-button" value="Post" />
       </form>
@@ -48,6 +48,9 @@
           </div>
         {% endfor %}
       </div>
+
+      {% import 'messageBanner.html' as banner %}
+      {{ banner.messageBanner() }}
     </div>
   </body>
 </html>

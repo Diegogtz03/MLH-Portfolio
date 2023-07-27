@@ -54,12 +54,25 @@ function handleFormSubmit(e) {
     method: 'POST',
     body: formData
   })
-  .then(response => response.json())
-  .then((data) => {
-    addTimelinePost(data['name'], data['email'], data['content'], data['created_at']);
+  .then((response) => {
+    if (response.status == 200) {
+      response.json().then((data) => {
+        addTimelinePost(data['name'], data['email'], data['content'], data['created_at']);
 
-    document.getElementById('form-name').value = '';
-    document.getElementById('form-email').value = '';
-    document.getElementById('form-content').value = '';
+        document.getElementById('form-name').value = '';
+        document.getElementById('form-email').value = '';
+        document.getElementById('form-content').value = '';
+      });
+
+      alertBanner("Post successful", 1);
+    } else if (response.status == 503) {
+      alertBanner("Please wait to post again", 2);
+    } else if (response.status == 400) {
+      response.text().then((errorMessage) => {
+        alertBanner(errorMessage, 3);
+      });
+    }
+  }).catch((error) => {
+    alertBanner("Something went wrong", 3);
   });
 }

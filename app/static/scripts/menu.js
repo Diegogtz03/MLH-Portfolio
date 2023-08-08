@@ -1,16 +1,17 @@
 // ON HOVER MENU BUTTON
 let buttons = document.getElementsByClassName('menu-button');
+const writeLabelDelay = 70;
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener('mouseover', (e) => {
     // Get span element inside button
     const spanElement = button.getElementsByClassName('hover-label')[0];
+    let label = spanElement.getAttribute('data-label');
 
     if (!spanElement.classList.contains('visible-label')) {
       // Save text inside span and set text to empty, add class that will make it visible
-      let label = spanElement.getAttribute('data-label');
-      spanElement.innerHTML = '';
       spanElement.classList.add('visible-label');
+      spanElement.innerHTML = '';
 
       // send it to function that will write the text console like
       writeLabel(spanElement, label);
@@ -37,7 +38,7 @@ function writeLabel(element, label) {
   labelArray.forEach((char, index) => {
     setTimeout(() => {
       element.innerHTML += char;
-    }, 100 * index);
+    }, writeLabelDelay * index);
   });
 }
 
@@ -50,12 +51,12 @@ function deleteLabel(element, label) {
     setTimeout(() => {
       label = label.slice(0, -1);
       element.innerHTML = label;
-    }, 100 * index);
+    }, writeLabelDelay * index);
   });
 
   // when done remove class
   setTimeout(() => {
     element.classList.remove('visible-label');
     element.innerHTML = '';
-  }, 100 * labelArray.length);
+  }, writeLabelDelay * labelArray.length);
 }

@@ -170,9 +170,9 @@ def timeline():
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-    name = request.form['name']
-    email = request.form['email']
-    content = request.form['content']
+    name = request.form['name'].strip()
+    email = request.form['email'].strip()
+    content = request.form['content'].strip()
     regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     if len(name) == 0:
         return "Invalid name", 400

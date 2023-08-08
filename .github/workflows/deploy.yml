@@ -29,6 +29,6 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
 
       - name: Deploy site
-        run: run my-vm '$PROJECT_ROOT/redeploy-site.sh'
+        run: run my-vm "$PROJECT_ROOT/redeploy-site.sh"
         env:
           PROJECT_ROOT: ${{ secrets.PROJECT_ROOT }}

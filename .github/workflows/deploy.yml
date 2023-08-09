@@ -34,6 +34,10 @@ jobs:
         if: failure()
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Testing Failed"
 
+      - name: Send Testing Success Message
+      if: success()
+      run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=✅ Testing Passed"
+
   deploy:
     needs: test
     name: "Deploy to VPS"
@@ -60,7 +64,7 @@ jobs:
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh'
 
       - name: Check container status
-        run: ssh my-vps 'docker-compose ps'
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker-compose ps'
 
       - name: Send status to discord
         run: ssh my-vps 'curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"'

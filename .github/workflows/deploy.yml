@@ -35,8 +35,8 @@ jobs:
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Testing Failed"
 
       - name: Send Testing Success Message
-      if: success()
-      run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=✅ Testing Passed"
+        if: success()
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=✅ Testing Passed"
 
   deploy:
     needs: test

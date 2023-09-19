@@ -27,7 +27,7 @@ services:
       - 443:443
     volumes:
       - ./user_conf_new.d:/etc/nginx/user_conf.d
-      - ./user_conf_new.d/certs:/etc/ssl/
+      - ./user_conf_new.d/certs:/etc/ssl
     depends_on:
       - myportfolio
 

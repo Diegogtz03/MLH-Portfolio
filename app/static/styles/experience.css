@@ -172,6 +172,9 @@ article {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    height: auto;
+  }
   article {
     margin-left: 0rem;
     padding: 2rem;

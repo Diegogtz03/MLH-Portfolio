@@ -150,6 +150,9 @@ body {
 }
 
 @media screen and (max-width: 860px) {
+  .images-container ul:first-child {
+    margin-top: 0;
+  }
 
   .hobbies-container h1 {
     font-size: 4rem;

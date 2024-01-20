@@ -8,6 +8,8 @@ services:
       - .env
     depends_on:
       - mysql
+    networks:
+      - router-network
 
   mysql:
     container_name: mysql
@@ -17,6 +19,8 @@ services:
       - .env
     volumes:
       - mydatabase:/var/lib/mysql
+    networks:
+      - router-network
 
   # nginx:
   #   container_name: nginx
@@ -33,3 +37,7 @@ services:
 
 volumes:
   mydatabase:
+
+networks:
+  router-network:
+    external: true

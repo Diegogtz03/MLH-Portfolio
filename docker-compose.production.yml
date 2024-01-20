@@ -23,8 +23,8 @@ services:
     image: nginx:latest
     restart: always
     ports:
-      - 8080:80
-      - 4043:443
+      - 80:80
+      - 443:443
     volumes:
       - ./user_conf_new.d:/etc/nginx/conf.d
       - ./user_conf_new.d/certs:/etc/ssl
